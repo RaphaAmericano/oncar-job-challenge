@@ -1,0 +1,152 @@
+[
+    {
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2020,
+        "price": 35000.00
+    },
+    {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 2015,
+        "price": 45000.00
+    },
+    {
+        "brand": "Chevrolet",
+        "model": "Camaro",
+        "year": 2018,
+        "price": 40000.00
+    },
+    {
+        "brand": "Honda",
+        "model": "Civic",
+        "year": 2019,
+        "price": 30000.00
+    },
+    {
+        "brand": "BMW",
+        "model": "X5",
+        "year": 2022,
+        "price": 60000.00
+    },
+    {
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2020,
+        "price": 35000.00
+    },
+    {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 2015,
+        "price": 45000.00
+    },
+    {
+        "brand": "Chevrolet",
+        "model": "Camaro",
+        "year": 2018,
+        "price": 40000.00
+    },
+    {
+        "brand": "Honda",
+        "model": "Civic",
+        "year": 2019,
+        "price": 30000.00
+    },
+    {
+        "brand": "BMW",
+        "model": "X5",
+        "year": 2022,
+        "price": 60000.00
+    },
+    {
+        "brand": "Nissan",
+        "model": "Altima",
+        "year": 2017,
+        "price": 28000.00
+    },
+    {
+        "brand": "Volkswagen",
+        "model": "Golf",
+        "year": 2020,
+        "price": 32000.00
+    },
+    {
+        "brand": "Mercedes-Benz",
+        "model": "E-Class",
+        "year": 2019,
+        "price": 55000.00
+    },
+    {
+        "brand": "Audi",
+        "model": "A4",
+        "year": 2021,
+        "price": 42000.00
+    },
+    {
+        "brand": "Hyundai",
+        "model": "Elantra",
+        "year": 2016,
+        "price": 25000.00
+    },
+    {
+        "brand": "Kia",
+        "model": "Sorento",
+        "year": 2018,
+        "price": 35000.00
+    },
+    {
+        "brand": "Lexus",
+        "model": "RX",
+        "year": 2019,
+        "price": 48000.00
+    },
+    {
+        "brand": "Subaru",
+        "model": "Outback",
+        "year": 2023,
+        "price": 38000.00
+    },
+    {
+        "brand": "Mazda",
+        "model": "CX-5",
+        "year": 2022,
+        "price": 36000.00
+    },
+    {
+        "brand": "Porsche",
+        "model": "911",
+        "year": 2021,
+        "price": 80000.00
+    },
+    {
+        "brand": "Jeep",
+        "model": "Wrangler",
+        "year": 2017,
+        "price": 32000.00
+    },
+    {
+        "brand": "Ram",
+        "model": "1500",
+        "year": 2020,
+        "price": 40000.00
+    },
+    {
+        "brand": "Tesla",
+        "model": "Model 3",
+        "year": 2023,
+        "price": 55000.00
+    },
+    {
+        "brand": "Ferrari",
+        "model": "488 GTB",
+        "year": 2019,
+        "price": 250000.00
+    },
+    {
+        "brand": "Lamborghini",
+        "model": "Huracan",
+        "year": 2022,
+        "price": 300000.00
+    }
+]

@@ -1,0 +1,11 @@
+{
+    "name": "types",
+    "main": "./index.ts",
+    "types": "./index.ts",
+    "scripts": {
+      "type-check": "tsc"
+    },
+    "devDependencies": {
+      "typescript": "^4.8.4"
+    }
+  }

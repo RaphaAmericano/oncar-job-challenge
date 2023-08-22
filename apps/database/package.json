@@ -1,0 +1,20 @@
+{
+    "name": "database",
+    "version": "0.0.0",
+    "private": true,
+    "main":"./index.ts",
+    "types": "./index.ts",
+    "scripts": {
+        "db:generate": "prisma generate",
+        "db:push": "prisma db push --skip-generate",
+        "seed": "ts-node --transpile-only seed.ts"
+    },
+    "dependencies": {
+        "@prisma/client": "^5.1.1"
+    },
+    "devDependencies": {
+        "eslint-config-custom-server": "*",
+        "tsconfig": "*",
+        "types": "*"
+    }
+}
