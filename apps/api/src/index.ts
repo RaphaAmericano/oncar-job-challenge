@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { json, urlencoded } from "body-parser"
-const port = process.env.PORT || 3002
+const port = process.env.API_PORT || 3000
 const server = express()
 server.use(urlencoded({ extended: true }))
     .use(json())
