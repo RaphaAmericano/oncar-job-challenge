@@ -1,6 +1,7 @@
 
 import { NextFunction, Request, Response } from "express";
 import { getAll, postLead } from "../services/lead.service"
+import { leadSchema } from "validation";
 
 async function getLeadsController(req: Request, res:Response, next: NextFunction){
     try {
@@ -15,6 +16,9 @@ async function getLeadsController(req: Request, res:Response, next: NextFunction
 async function postLeadController(req: Request, res:Response, next: NextFunction){
     const { body } = req; 
     console.log(body)
+    const validate = leadSchema.safeParse(body)
+    console.log(validate);
+    
     try {
         const lead = await postLead(body)
         console.log(lead);
