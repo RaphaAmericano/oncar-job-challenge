@@ -35,7 +35,7 @@ export default function ContactForm({ id }: ContactFormProps){
       try {
         const result = await postLead(data)
         console.log(result)
-        router.push("/confirmation")
+        router.push("confirmation")
       } catch (e) {
         console.error(e)
 
@@ -54,7 +54,7 @@ export default function ContactForm({ id }: ContactFormProps){
         .replace(/(-\d{4})\d+?$/, '$1') 
     }
     return (
-          <form onSubmit={handleSubmit(onSubmit, onError)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
