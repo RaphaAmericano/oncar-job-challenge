@@ -17,7 +17,10 @@ async function postLeadController(req: Request, res:Response, next: NextFunction
     const { body } = req; 
     console.log(body)
     const validate = leadSchema.safeParse(body)
-    console.log(validate);
+    
+    if(validate.success === false){
+        res.status(400).json(validate.error)
+    }
     
     try {
         const lead = await postLead(body)
