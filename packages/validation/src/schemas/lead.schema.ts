@@ -3,13 +3,7 @@ import { z } from "zod"
 const leadSchema = z.object({
     name: z.string(),
     email: z.string().email(),
-    phone: z.number(),
-    date: z.date(),
+    phone: z.string().max(11),
     carId: z.number()
 })
-
-function validationLead(value:any){
-    return leadSchema.safeParse(value)
-}
-
-export { leadSchema, validationLead }
+export { leadSchema }

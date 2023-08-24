@@ -1,10 +1,14 @@
 import { Car } from "types"
-
+import { useRouter } from "next/navigation"
 interface CardProps {
     car: Car 
 }
 
 function Card({ car } :CardProps ){
+    const router = useRouter()
+    function pushLink(){
+        router.push(`/contact/${car.id}`)        
+    }
 return (
      <article key={car.id} className="flex max-w-xl flex-col items-start justify-between">                
         <div className="group relative">
@@ -30,7 +34,7 @@ return (
             </div>
         </div>
         <div className="relative mt-8 flex items-center gap-x-4">
-            <button className="">Entre em contato</button>
+            <button className="bg-black text-white rounded-md p-2" onClick={pushLink}>Entre em contato</button>
         </div>
     </article>
 )

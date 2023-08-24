@@ -19,6 +19,6 @@ export async function getLeads(){
 }
 
 export async function postLead(payload:LeadPostRequest ){
-    return service.post("orders", payload)
+    return service.post("/lead", payload)
 }
 

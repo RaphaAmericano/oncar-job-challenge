@@ -7,8 +7,8 @@ const carSchema = z.object({
     price: z.number()
 })
 
-function validationCar(value:any){
-    return carSchema.safeParse(value)
-}
+// function validationCar(value:any){
+//     return carSchema.safeParse(value)
+// }
 
-export { carSchema, validationCar }
+export { carSchema }

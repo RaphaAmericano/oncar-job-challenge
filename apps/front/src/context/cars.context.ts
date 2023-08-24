@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react";
 import { getCars } from "../services/api";
+import { Car } from "types";
 function useCars(){
     const [cars, setCars ] = useState<any[]>([])
     async function fetchData(){
@@ -14,8 +15,8 @@ function useCars(){
         }
     } 
 
-    const car = (id: number) => {
-        return cars.find((car) => car.id === id)
+    const car = (id: number): Car => {
+        return cars.find((car: Car) => car.id === id)
     }
 
     useEffect(() => {

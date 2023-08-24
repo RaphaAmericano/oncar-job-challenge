@@ -2,7 +2,7 @@ export interface Lead {
     id?: number;
     name: string;
     email: string;
-    phone: number;
+    phone: string;
     date?: Date;
     carId?: number;
 }
