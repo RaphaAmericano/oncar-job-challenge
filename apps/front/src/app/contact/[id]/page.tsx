@@ -34,11 +34,11 @@ export default function Contact({ params  } : ContactParams ) {
           )}
         </div>
         <div>
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl">
               <button 
                 onClick={toHome}
                 type="button" 
-                className="text-sm font-semibold leading-6 text-gray-900 border-black border-1 p-4">
+                className="text-sm font-semibold leading-6 text-gray-900 border-black border-2 rounded border- px-3 py-2">
                     Voltar
               </button>
             </div>
