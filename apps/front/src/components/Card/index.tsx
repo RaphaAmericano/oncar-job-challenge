@@ -25,7 +25,7 @@ return (
                 alt={`Image of ${car.model}`} className="h-10 w-10 rounded-full bg-gray-50" />
             <div className="text-sm leading-6">
             <p className="font-semibold text-gray-900">
-                <a href={"www.google.com"}>
+                <a href={`https://www.google.com/search?q=${car.model}+${car.year}`} target="_blank">
                 <span className="absolute inset-0" />
                 {car.model}
                 </a>

@@ -3,8 +3,12 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { leadSchema } from "validation"
 import { postLead } from "@/services/api";
-import { ChangeEvent, ChangeEventHandler, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import FeedbackMessage from "@/components/FeedbackMessage";
+import Label from "@/components/Label";
+import Input from "@/components/Input";
+import { phoneMask } from "@/utils/masks";
 
 interface ContactFormProps {
     id:number;
@@ -42,73 +46,58 @@ export default function ContactForm({ id }: ContactFormProps){
       }
       setDisabled(false)
     }
+    useEffect(() => {
+      console.log(errors);
+    },[errors]);
 
     function onError(error: SubmitErrorHandler<FormValues>){
       console.log(error)
     }
+
     function handleOnChangePhone(event:ChangeEvent<HTMLInputElement>){
-      event.target.value = event.target.value.replace(/\D/g, '')
-        .replace(/(\d{2})(\d)/, '($1) $2')
-        .replace(/(\d{4})(\d)/, `$1-$2`)
-        .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
-        .replace(/(-\d{4})\d+?$/, '$1') 
+      event.target.value = phoneMask(event.target.value)
     }
     return (
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-3">
-                <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
-                  Nome
-                </label>
-                <div className="mt-2">
-                  <input
-                    {...register("name")}
-                    autoComplete="name"
-                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="mx-auto mt-16 max-w-xl sm:mt-20">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div>
+              <Label htmlFor="name">Nome</Label>
+              <div className="mt-2.5">
+                <Input
+                {...register("name")}
+                  type="text"
+                  autoComplete="name"
+                />
               </div>
-  
-              <div className="sm:col-span-3">
-                <label htmlFor="phone" className="block text-sm font-medium leading-6 text-gray-900">
-                  Telefone
-                </label>
-                <div className="mt-2">
-                  <input
-                    {...register("phone", {
-                      setValueAs:(value) =>  value.replace(/[^0-9]+/g, "")  
-                    })}
-                    onChange={handleOnChangePhone}
-                    type="tel"
-                    placeholder="(12) 999887788"
-                    inputMode="numeric"
-                    autoComplete="phone"
-                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                  {errors.phone && (
-                    "Erro"
-                  )}
-                </div>
-              </div>
-  
-              <div className="sm:col-span-3">
-                <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                  Email
-                </label>
-                <div className="mt-2">
-                  <input
-                    {...register("email")}
-                    type="email"
-                    autoComplete="email"
-                    className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
-              </div>
-              
+              {(errors?.name && errors?.name?.message) && <FeedbackMessage type="danger" text={errors.name.message} />}
             </div>
-          
-            <div className="mt-6 flex items-center justify-end gap-x-6">
-            
+            <div>
+              <Label htmlFor="phone">Telefone</Label>
+              <div className="mt-2.5">
+              <Input {...register("phone", {
+                    setValueAs:(value) =>  value.replace(/[^0-9]+/g, "")  
+                  }) }
+                  onChange={handleOnChangePhone}
+                  type="tel"
+                  inputMode="numeric"
+                  autoComplete="phone"
+                  />
+                </div>  
+                {(errors?.phone && errors?.phone?.message) && <FeedbackMessage type="danger" text={errors.phone.message} />}  
+              </div>
+              <div className="sm:col-span-2">
+              <Label htmlFor="email">Email</Label>
+                  <div className="mt-2.5">
+                    <Input
+                      {...register("email")}
+                      type="email"
+                      autoComplete="email"
+                    />
+                  </div>
+                  {(errors?.email && errors?.email?.message) && <FeedbackMessage type="danger" text={errors.email.message} />}  
+                </div>
+            </div>
+          <div className="mt-6 flex items-center justify-end gap-x-6">
             <button
                 disabled={disabled}
                 type="submit"
@@ -116,6 +105,8 @@ export default function ContactForm({ id }: ContactFormProps){
             >
                 Enviar
             </button>
+            {(errors?.root && errors?.root?.message) && <FeedbackMessage type="danger" text={errors.root.message} />}  
          </div>
-      </form>)
+      </form>
+  )
 }
